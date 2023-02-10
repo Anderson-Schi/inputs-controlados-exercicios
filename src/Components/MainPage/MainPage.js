@@ -10,6 +10,11 @@ const MainPage = () => {
   const [nome, setNome] = useState("");
   const [idade, setIdade] = useState("");
   const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [dataNascimento, setDataNascimento] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [telefone, setTelefone] = useState("");
+
   //3.1 crie aqui os estados dataNascimento, telefone e cidade para o exercício 3
 
   const onChangeNome = (event) => {
@@ -22,6 +27,22 @@ const MainPage = () => {
 
   const onChangeEmail = (event) => {
     setEmail(event.target.value);
+  };
+
+  const onChangeConfirmEmail = (event) => {
+    setConfirmEmail(event.target.value);
+  };
+
+  const onChangeDataNascimento = (event) => {
+    setDataNascimento(event.target.value);
+  };
+
+  const onChangeCidade = (event) => {
+    setCidade(event.target.value);
+  };
+
+  const onChangeTelefone = (event) => {
+    setTelefone(event.target.value);
   };
 
   //3.2 Crie aqui as funções de onChange do exercício 3
@@ -43,21 +64,29 @@ const MainPage = () => {
           nome={nome}
           idade={idade}
           email={email}
+          confirmEmail={confirmEmail}
           onChangeNome={onChangeNome}
           onChangeIdade={onChangeIdade}
           onChangeEmail={onChangeEmail}
+          onChangeConfirmEmail={onChangeConfirmEmail}
           sendData={sendData}
         />
       );
     } else if (formFlow === 2) {
       return (
         <ConfirmationForm
+          cidade={cidade}
+          telefone={telefone}
+          dataNascimento={dataNascimento}
+          onChangeDataNascimento={onChangeDataNascimento}
+          onChangeCidade={onChangeCidade}
+          onChangeTelefone={onChangeTelefone}
           sendForm={sendForm}
           //3.3 passe as props do exercicio 3 aqui
         />
       );
     } else {
-      return <ConfirmationPage />;
+      return <ConfirmationPage data={data}/>;
     }
   };
 
